@@ -16,8 +16,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests((auth) ->
             auth.requestMatchers("/api/v1/open/greeting").permitAll()
                 .requestMatchers("/api/v1/protected/greeting").authenticated())
-            .httpBasic(Customizer.withDefaults())
-            .formLogin(Customizer.withDefaults());
+                .oauth2Login(Customizer.withDefaults());
         return http.build();
     }
 
